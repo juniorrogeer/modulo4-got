@@ -1,0 +1,73 @@
+Q1 - Quantas casas a Região Westerlands possui?
+
+Resposta: 55 casas.
+
+A consulta no SQL se deu da seguinte maneira:
+
+select count(nome_casa) from casas where regiao = "Westerlands";
++------------------+
+| count(nome_casa) |
++------------------+
+|               55 |
++------------------+
+
+----
+
+Q2 - Quantos episódios tiveram a duração maior ou igual a 1 hora?
+
+Resposta: 16 episódios.
+
+A consulta SQL se deu da seguinte maneira:
+
+select count(nome_episodio) from episodios where duracao_episodio >=60;
++----------------------+
+| count(nome_episodio) |
++----------------------+
+|                   16 |
++----------------------+
+
+----
+
+Q3 - Qual personagem teve o maior número de aparições na série?
+
+Resposta: Tyrion Lannister, com 67 aparições.
+
+A pesquisa SQL se deu da seguinte maneira: 
+
+select max(total_aparicoes), nome_personagem from personagens;
++----------------------+------------------+
+| max(total_aparicoes) | nome_personagem  |
++----------------------+------------------+
+|                   67 | Tyrion Lannister |
++----------------------+------------------+
+
+----
+
+Q4 - Qual episódio obteve a menor media de notas em todas as temporadas?
+
+Resposta: Episódio The Iron Throne, da temporada 8, que obteve a média de nota 4.1.
+
+A pesquisa SQL se deu da seguinte maneira:
+
+select temporada, nome_episodio, media_notas from episodios where media_notas <=5;
++-----------+-----------------+-------------+
+| temporada | nome_episodio   | media_notas |
++-----------+-----------------+-------------+
+|         8 | The Iron Throne |         4.1 |
++-----------+-----------------+-------------+
+
+
+----
+
+Q5 - Quantos episódios foram lançados no mês de abril, considerando todas as temporadas?
+
+Resposta: 22 episódios.
+
+A consulta SQL se deu da seguinte maneira:
+
+select count(nome_episodio) from episodios where data_lancamento like "%-Apr-%";
++----------------------+
+| count(nome_episodio) |
++----------------------+
+|                   22 |
++----------------------+
